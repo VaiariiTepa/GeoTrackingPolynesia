@@ -15,7 +15,7 @@ class CreateGeotrackingsTable extends Migration
     {
         Schema::create('geotrackings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nomville');
+            $table->string('nom_categorie');
             $table->float('lat');
             $table->float('lon');
             $table->timestamps();
