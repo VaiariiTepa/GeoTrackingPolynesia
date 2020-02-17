@@ -40,16 +40,15 @@
 			<!-- Ici s'affichera la carte -->
         </div>
         <br>
-
-        <select name="list_categorie" id="">
+        <select name="list_categorie" id="list_categorie">
             @foreach ($list_categorie as $item)
                 <option value="{{ $item['nom_categorie'] }}">
-
+                    {{ $item['nom_categorie'] }}
                 </option>
             @endforeach
         </select>
 
-
+        <script src="{{ asset('js/jquery.js') }}"></script>
         <script src="https://maps.google.com/maps/api/js?key=AIzaSyAf1TaA4FTpPmk7p9hSgpdiNJ-z1q4PzwQ" type="text/javascript"></script>
 		<script async type="text/javascript">
 			// On initialise la latitude et la longitude de Paris (centre de la carte)
@@ -67,6 +66,14 @@
             var infowindow = new google.maps.InfoWindow({
                 content: contentString,
                 maxWidth: 200
+            });
+
+            $(document).ready(function(){
+                // c'est ici que je vais écrire le code JQuery de ma page
+                $('#list_categorie').change(function(){
+                    alert('c\'est good');
+                });
+
             });
 
 			// Fonction d'initialisation de la carte
@@ -111,7 +118,6 @@
                 marker.addListener('click', function() {
                     infowindow.open(map, marker);
                 });
-
 
                 infoWindow = new google.maps.InfoWindow;
 
