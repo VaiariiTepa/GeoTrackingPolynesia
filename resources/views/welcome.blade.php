@@ -28,13 +28,9 @@
 			<!-- Ici s'affichera la carte -->
 		</div>
 
-
-
         <script src="https://maps.google.com/maps/api/js?key=AIzaSyAf1TaA4FTpPmk7p9hSgpdiNJ-z1q4PzwQ" type="text/javascript"></script>
 		<script async type="text/javascript">
 			// On initialise la latitude et la longitude de Paris (centre de la carte)
-			// var lat = -17.686144;
-            // var lon = -149.570525;
             var lat = -17.686144;
             var lon = -149.570525;
             var map = null;
@@ -52,6 +48,7 @@
                 content: contentString,
                 maxWidth: 200
             });
+
 			// Fonction d'initialisation de la carte
 			function initMap() {
 				// Créer l'objet "map" et l'insèrer dans l'élément HTML qui a l'ID "map"
@@ -127,8 +124,8 @@
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                 infoWindow.setPosition(pos);
                 infoWindow.setContent(browserHasGeolocation ?
-                                    'Error: The Geolocation service failed.' :
-                                    'Error: Your browser doesn\'t support geolocation.');
+                                    'Geolocalisation échouer !' :
+                                    'Erreur: votre naviguateur ne supporte pas la géolocalisation');
                 infoWindow.open(map);
             }
 		</script>
