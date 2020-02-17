@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Geotracking;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $list_categorie = Geotracking::all();
+
+        return view('home',compact('list_categorie'));
     }
 }

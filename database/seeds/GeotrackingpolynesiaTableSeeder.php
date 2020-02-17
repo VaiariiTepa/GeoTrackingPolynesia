@@ -11,14 +11,14 @@ class GeotrackingpolynesiaTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('geotrackingpolynesie')->insert([
+        DB::table('geotrackings')->insert([
             [
-            'nomville' => 'RSMA',
+            'nom_categorie' => 'RSMA',
             'lat' => -17.528650,
             'lon' => -149.530796
             ],
             [
-            'nomville' => 'Ma maison',
+            'nom_categorie' => 'Ma maison',
             'lat' => -17.686144,
             'lon' => -149.570525
             ]
