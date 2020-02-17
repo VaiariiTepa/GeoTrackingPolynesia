@@ -36,10 +36,8 @@
             var map = null;
 
             var villes = {
-                "Paris":{"lat": 48.852969,"lon": 2.349903},
-                "Brest":{"lat": 48.383,"lon": -4.500},
-                "Quimper":{"lat": 48.000,"lon": -4.100},
-                "Maison":{"lat": -17.686144,"lon": -149.570525}
+                "RSMA":{"lat": -17.528650,"lon": -149.530796},
+                "Ma maison":{"lat": -17.686144,"lon": -149.570525}
             };
 
             // Permet d'ajouté une InfoBulle lors du clique sur le marqueur
