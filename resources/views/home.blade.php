@@ -69,6 +69,7 @@
             });
 
             $(document).ready(function(){
+
                 // c'est ici que je vais écrire le code JQuery de ma page
                 $('#list_categorie').change(function(){
                     alert('c\'est good');
