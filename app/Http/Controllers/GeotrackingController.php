@@ -21,7 +21,7 @@ class GeotrackingController extends Controller
     public function get_marcker()
     {
         $id = $_GET['id_categorie'];
-        echo($id);
+
         $liste_categorie = DB::select('select * from geotrackings where id = '.$id);
 
         return json_encode($liste_categorie);

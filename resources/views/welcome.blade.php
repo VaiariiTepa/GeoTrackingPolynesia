@@ -24,12 +24,9 @@
                 @endauth
             </div>
         @endif
-<<<<<<< HEAD
         <h1>Bienvenue sur la page</h1>
-=======
         <div>
             vous êtes sur la page de bienvenue :)
         </div>
->>>>>>> vue
 	</body>
 </html>

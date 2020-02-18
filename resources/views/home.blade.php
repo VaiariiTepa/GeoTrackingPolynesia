@@ -56,10 +56,10 @@
             var lon = -149.570525;
             var map = null;
 
-            var villes = {
-                "RSMA":{"lat": -17.528650,"lon": -149.530796},
-                "Ma maison":{"lat": -17.686144,"lon": -149.570525}
-            };
+            // var villes = {
+            //     "RSMA":{"lat": -17.528650,"lon": -149.530796},
+            //     "Ma maison":{"lat": -17.686144,"lon": -149.570525}
+            // };
 
             // Permet d'ajouté une InfoBulle lors du clique sur le marqueur
             var contentString = 'test d\'affichage<br>'+'autre ligne';
@@ -94,12 +94,30 @@
                         'id_categorie': id_categorie
                     },
                     'success': function(data){
-                            alert(data);
+
+                            show_map(data);
                         },
                         'error': function(){
                             alert('erreur');
                         }
                 });
+            }
+
+            function show_map(data){
+
+                var categories = data;
+                // On parcourt l'objet villes
+                for(categorie in categories){
+                    // console.log(categories[categorie].nom_categorie);
+                    var marker = new google.maps.Marker({
+                        // parseFloat nous permet de transformer la latitude et la longitude en nombre décimal
+                        position: {lat: parseFloat(categories[categorie].lat), lng: parseFloat(categories[categorie].lon)},
+                        title: categories[categorie].nom_categorie,
+                        map: map
+                    });
+                    marker.setAnimation(google.maps.Animation.DROP);
+                }
+
             }
 
 			// Fonction d'initialisation de la carte
@@ -131,19 +149,19 @@
                 });
 
                 // Nous parcourons la liste des villes
-                for(ville in villes){
-                    var marker = new google.maps.Marker({
-                        // A chaque boucle, la latitude et la longitude sont lues dans le tableau
-                        position: {lat: villes[ville].lat, lng: villes[ville].lon},
-                        // On en profite pour ajouter une info-bulle contenant le nom de la ville
-                        title: ville,
-                        map: map
-                    });
-                }
+                // for(ville in villes){
+                //     var marker = new google.maps.Marker({
+                //         // A chaque boucle, la latitude et la longitude sont lues dans le tableau
+                //         position: {lat: villes[ville].lat, lng: villes[ville].lon},
+                //         // On en profite pour ajouter une info-bulle contenant le nom de la ville
+                //         title: ville,
+                //         map: map
+                //     });
+                // }
 
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
+                // marker.addListener('click', function() {
+                //     infowindow.open(map, marker);
+                // });
 
                 infoWindow = new google.maps.InfoWindow;
 
