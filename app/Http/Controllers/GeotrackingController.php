@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Geotracking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GeotrackingController extends Controller
 {
@@ -17,13 +18,13 @@ class GeotrackingController extends Controller
         //
     }
 
-    public function get_marker()
+    public function get_marcker()
     {
-        $id = $_GET[''];
+        $id = $_GET['id_categorie'];
+        echo($id);
+        $liste_categorie = DB::select('select * from geotrackings where id = '.$id);
 
-        $liste_categorie = DB::select('select * from geotrackings where id = ?', [1]);
-
-        return json_encode();
+        return json_encode($liste_categorie);
     }
 
 

@@ -42,7 +42,7 @@
         <br>
         <select name="list_categorie" id="list_categorie">
             @foreach ($list_categorie as $item)
-                <option value="{{ $item['nom_categorie'] }}">
+                <option value="{{ $item['id'] }}">
                     {{ $item['nom_categorie'] }}
                 </option>
             @endforeach
@@ -72,10 +72,35 @@
 
                 // c'est ici que je vais écrire le code JQuery de ma page
                 $('#list_categorie').change(function(){
-                    alert('c\'est good');
+
+                    var id_categorie = $('#list_categorie').val();
+                    generer_ajax(id_categorie);
+
+
                 });
 
             });
+
+            //AJAX
+            function generer_ajax(id_categorie){
+                $.ajax({
+                    type:"GET",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url:"home/generer",
+                    dataType:"json",
+                    data: {
+                        'id_categorie': id_categorie
+                    },
+                    'success': function(data){
+                            alert(data);
+                        },
+                        'error': function(){
+                            alert('erreur');
+                        }
+                });
+            }
 
 			// Fonction d'initialisation de la carte
 			function initMap() {
